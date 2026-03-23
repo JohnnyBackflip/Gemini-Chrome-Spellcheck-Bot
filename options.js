@@ -100,6 +100,7 @@ function populateModelSelect(models, selectedModel = '') {
     const defaultOpt = models.find(m => m.name.includes('3.1-flash-lite-preview'));
     if (defaultOpt) select.value = defaultOpt.name;
   }
+}
 
 function saveOptions() {
   const apiKey = document.getElementById('apiKey').value.trim();
