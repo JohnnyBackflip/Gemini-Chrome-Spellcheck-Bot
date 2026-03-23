@@ -96,14 +96,10 @@ function populateModelSelect(models, selectedModel = '') {
   if (selectedModel) {
     select.value = selectedModel;
   } else {
-  if (selectedModel) {
-    select.value = selectedModel;
-  } else {
     // defaults to 3.1 flash lite preview
     const defaultOpt = models.find(m => m.name.includes('3.1-flash-lite-preview'));
     if (defaultOpt) select.value = defaultOpt.name;
   }
-}
 
 function saveOptions() {
   const apiKey = document.getElementById('apiKey').value.trim();
