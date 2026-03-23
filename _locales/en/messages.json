@@ -1,0 +1,25 @@
+{
+  "extensionName": { "message": "Gemini AI Spellcheck" },
+  "extensionDescription": { "message": "Corrects spelling in text fields using Google Gemini AI" },
+  "actionTitle": { "message": "Settings & Options" },
+  "commandCorrectSpelling": { "message": "Correct Spelling" },
+  "contextMenuTitle": { "message": "Correct Spelling" },
+  "promptDefault": { "message": "Correct the spelling and grammar of the following text. Only return the corrected text, no conversational filler or explanation." },
+  
+  "uiAccept": { "message": "Accept" },
+  "uiReject": { "message": "Reject" },
+  "uiLoading": { "message": "Correcting..." },
+  "uiError": { "message": "Error correcting text" },
+  
+  "optTitle": { "message": "Gemini Spellcheck Settings" },
+  "optApiKey": { "message": "Gemini API Key" },
+  "optApiKeyPlaceholder": { "message": "Enter your Gemini API Key" },
+  "optModel": { "message": "Gemini Model" },
+  "optRefreshModels": { "message": "Refresh Models" },
+  "optPrompt": { "message": "System Prompt" },
+  "optSave": { "message": "Save Settings" },
+  "optStatusSaving": { "message": "Saving..." },
+  "optStatusSaved": { "message": "Options saved." },
+  "optStatusError": { "message": "Error saving options." },
+  "optStatusNoKey": { "message": "Please enter an API Key first." }
+}

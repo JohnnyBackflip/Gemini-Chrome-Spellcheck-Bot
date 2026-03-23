@@ -1,0 +1,25 @@
+{
+  "extensionName": { "message": "Gemini KI Rechtschreibprüfung" },
+  "extensionDescription": { "message": "Korrigiert die Rechtschreibung in Textfeldern über Google Gemini KI" },
+  "actionTitle": { "message": "Einstellungen" },
+  "commandCorrectSpelling": { "message": "Rechtschreibung korrigieren" },
+  "contextMenuTitle": { "message": "Rechtschreibung korrigieren" },
+  "promptDefault": { "message": "Korrigiere die Rechtschreibung und Grammatik des folgenden Textes. Gib nur den korrigierten Text ohne zusätzliche Erklärungen zurück." },
+  
+  "uiAccept": { "message": "Akzeptieren" },
+  "uiReject": { "message": "Ablehnen" },
+  "uiLoading": { "message": "Korrigiere..." },
+  "uiError": { "message": "Fehler bei der Korrektur" },
+  
+  "optTitle": { "message": "Gemini Spellcheck Einstellungen" },
+  "optApiKey": { "message": "Gemini API-Schlüssel" },
+  "optApiKeyPlaceholder": { "message": "Gib deinen Gemini API-Schlüssel ein" },
+  "optModel": { "message": "Gemini Modell" },
+  "optRefreshModels": { "message": "Modelle neu laden" },
+  "optPrompt": { "message": "System-Prompt" },
+  "optSave": { "message": "Speichern" },
+  "optStatusSaving": { "message": "Speichert..." },
+  "optStatusSaved": { "message": "Einstellungen gespeichert." },
+  "optStatusError": { "message": "Fehler beim Speichern." },
+  "optStatusNoKey": { "message": "Bitte zuerst einen API-Schlüssel eingeben." }
+}

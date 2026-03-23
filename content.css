@@ -1,0 +1,98 @@
+#gemini-spellcheck-tooltip-wrapper {
+  position: absolute;
+  z-index: 2147483647; /* MAX Z-INDEX */
+  font-family: 'Inter', -apple-system, sans-serif;
+  pointer-events: none; /* Let clicks pass through the wrapper itself */
+}
+
+#gemini-tooltip {
+  pointer-events: auto; /* Catch clicks on the actual tooltip */
+  background: rgba(22, 27, 34, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 12px;
+  width: max-content;
+  max-width: 400px;
+  color: #c9d1d9;
+  font-size: 14px;
+}
+
+.gemini-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: 400;
+}
+
+.gemini-content.loading-state {
+  flex-direction: row;
+  align-items: center;
+}
+
+.gemini-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(88, 166, 255, 0.3);
+  border-top-color: #58a6ff;
+  border-radius: 50%;
+  animation: gemini-spin 1s linear infinite;
+}
+
+@keyframes gemini-spin {
+  to { transform: rotate(360deg); }
+}
+
+.gemini-result-text {
+  background: rgba(1, 4, 9, 0.8);
+  padding: 10px;
+  border-radius: 6px;
+  max-height: 200px;
+  overflow-y: auto;
+  line-height: 1.4;
+  word-wrap: break-word; /* Ensure extremely long unbroken words wrap properly */
+  white-space: pre-wrap;
+  color: #fff;
+}
+
+.gemini-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.gemini-btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.gemini-btn.primary {
+  background: #238636;
+  color: #fff;
+}
+
+.gemini-btn.primary:hover {
+  background: #2ea043;
+}
+
+.gemini-btn.outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #c9d1d9;
+}
+
+.gemini-btn.outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+#gemini-spellcheck-tooltip-wrapper .error-msg {
+  color: #f85149;
+  line-height: 1.4;
+}

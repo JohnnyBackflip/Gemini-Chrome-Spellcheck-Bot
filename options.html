@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>__MSG_optTitle__</title>
+  <link rel="stylesheet" href="options.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="background-decor"></div>
+  <div class="container glass-panel">
+    <header>
+      <img src="icons/icon48.png" alt="Icon" class="logo">
+      <h1 data-i18n="optTitle">Gemini Spellcheck Settings</h1>
+    </header>
+
+    <main>
+      <div class="form-group">
+        <label for="apiKey" data-i18n="optApiKey">Gemini API Key</label>
+        <input type="password" id="apiKey" placeholder="__MSG_optApiKeyPlaceholder__" />
+        <small><a href="https://aistudio.google.com/app/apikey" target="_blank">Get API Key</a></small>
+      </div>
+
+      <div class="form-group">
+        <label for="modelSelect" data-i18n="optModel">Gemini Model</label>
+        <div class="flex-row">
+          <select id="modelSelect">
+            <option value="">Loading...</option>
+          </select>
+          <button id="refreshModelsBtn" class="secondary-btn" data-i18n="optRefreshModels">Refresh Models</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="customPrompt" data-i18n="optPrompt">System Prompt</label>
+        <textarea id="customPrompt" rows="4"></textarea>
+      </div>
+
+      <div class="form-group shortcut-info">
+        <label>Keyboard Shortcut</label>
+        <p>To change the default shortcut (Ctrl+Shift+K / Cmd+Shift+K), visit <a href="chrome://extensions/shortcuts" target="_blank">chrome://extensions/shortcuts</a>.</p>
+      </div>
+
+      <div class="actions">
+        <button id="saveBtn" class="primary-btn" data-i18n="optSave">Save Settings</button>
+        <div id="status" class="status-msg"></div>
+      </div>
+    </main>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>
