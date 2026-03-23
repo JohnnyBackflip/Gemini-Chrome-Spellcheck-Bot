@@ -73,7 +73,7 @@ async function callGeminiAPI(text) {
     throw new Error(chrome.i18n.getMessage("optStatusNoKey") || "No API Key configured. Please check Options.");
   }
   
-  const model = items.gemini_model || "models/gemini-1.5-flash";
+  const model = items.gemini_model || "models/gemini-3.1-flash-lite-preview";
   const systemPrompt = items.gemini_prompt || chrome.i18n.getMessage("promptDefault") || "Correct the spelling and grammar of the following text. Only return the corrected text, no conversational filler or explanation.";
   
   // Clean up the model string in case it doesn't have the models/ prefix
