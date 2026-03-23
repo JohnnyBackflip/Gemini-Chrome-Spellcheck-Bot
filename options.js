@@ -47,10 +47,12 @@ async function fetchModels() {
     const data = await response.json();
     
     // Filter to only text-generation capable models
-    const validModels = data.models.filter(m => 
-      m.supportedGenerationMethods && 
-      m.supportedGenerationMethods.includes('generateContent')
-    );
+    const validModels = data.models.filter(m => {
+      if (!m.supportedGenerationMethods || !m.supportedGenerationMethods.includes('generateContent')) return false;
+      const lowerName = m.name.toLowerCase() + (m.displayName ? m.displayName.toLowerCase() : '');
+      if (lowerName.includes('banana') || lowerName.includes('robotics') || lowerName.includes('research')) return false;
+      return true;
+    });
 
     populateModelSelect(validModels);
     
@@ -88,8 +90,8 @@ function populateModelSelect(models, selectedModel = '') {
   if (selectedModel) {
     select.value = selectedModel;
   } else {
-    // defaults to flash if available
-    const defaultOpt = models.find(m => m.name.includes('flash'));
+    // defaults to 3.1 flash lite preview if available
+    const defaultOpt = models.find(m => m.name.includes('3.1-flash-lite') || (m.displayName && m.displayName.includes('3.1'))) || models.find(m => m.name.includes('flash'));
     if (defaultOpt) select.value = defaultOpt.name;
   }
 }
@@ -122,7 +124,7 @@ function restoreOptions() {
       populateModelSelect(items.cachedModels, items.gemini_model);
     } else {
       // populate with default dummy until load
-      populateModelSelect([{name: 'models/gemini-1.5-flash', displayName: 'Gemini 1.5 Flash (Default)'}], items.gemini_model);
+      populateModelSelect([{name: 'models/gemini-3.1-flash-lite-preview', displayName: 'Gemini 3.1 Flash Lite Preview (Default)'}], items.gemini_model);
       if (items.gemini_api_key) {
         // Auto-fetch models if we have an API key but no cached list
         fetchModels();
