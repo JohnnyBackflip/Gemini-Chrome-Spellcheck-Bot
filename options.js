@@ -54,6 +54,12 @@ async function fetchModels() {
       return true;
     });
 
+    // Manually push Gemini 3.1 Flash Lite Preview so it's guaranteed to be available
+    const requestedModelName = 'models/gemini-3.1-flash-lite-preview';
+    if (!validModels.find(m => m.name === requestedModelName)) {
+        validModels.unshift({ name: requestedModelName, displayName: 'Gemini 3.1 Flash Lite Preview' });
+    }
+
     populateModelSelect(validModels);
     
     // Save the retrieved models to storage so they don't have to be fetched every time
@@ -90,8 +96,11 @@ function populateModelSelect(models, selectedModel = '') {
   if (selectedModel) {
     select.value = selectedModel;
   } else {
-    // defaults to 3.1 flash lite preview if available
-    const defaultOpt = models.find(m => m.name.includes('3.1-flash-lite') || (m.displayName && m.displayName.includes('3.1'))) || models.find(m => m.name.includes('flash'));
+  if (selectedModel) {
+    select.value = selectedModel;
+  } else {
+    // defaults to 3.1 flash lite preview
+    const defaultOpt = models.find(m => m.name.includes('3.1-flash-lite-preview'));
     if (defaultOpt) select.value = defaultOpt.name;
   }
 }
@@ -124,7 +133,7 @@ function restoreOptions() {
       populateModelSelect(items.cachedModels, items.gemini_model);
     } else {
       // populate with default dummy until load
-      populateModelSelect([{name: 'models/gemini-3.1-flash-lite-preview', displayName: 'Gemini 3.1 Flash Lite Preview (Default)'}], items.gemini_model);
+      populateModelSelect([{name: 'models/gemini-3.1-flash-lite-preview', displayName: 'Gemini 3.1 Flash Lite Preview'}], items.gemini_model);
       if (items.gemini_api_key) {
         // Auto-fetch models if we have an API key but no cached list
         fetchModels();
