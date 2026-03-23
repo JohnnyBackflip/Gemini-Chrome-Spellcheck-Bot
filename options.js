@@ -46,9 +46,9 @@ async function fetchModels() {
     }
     const data = await response.json();
     
-    // Filter to only text-generation capable models Let's only list gemini 1.5/2.5 series.
+    // Filter to only text-generation capable models
     const validModels = data.models.filter(m => 
-      m.name.includes('gemini') && 
+      m.supportedGenerationMethods && 
       m.supportedGenerationMethods.includes('generateContent')
     );
 
@@ -123,6 +123,10 @@ function restoreOptions() {
     } else {
       // populate with default dummy until load
       populateModelSelect([{name: 'models/gemini-1.5-flash', displayName: 'Gemini 1.5 Flash (Default)'}], items.gemini_model);
+      if (items.gemini_api_key) {
+        // Auto-fetch models if we have an API key but no cached list
+        fetchModels();
+      }
     }
   });
 }
